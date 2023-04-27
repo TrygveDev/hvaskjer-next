@@ -25,7 +25,7 @@ export const authOptions: AuthOptions = {
 			},
 			async authorize(credentials) {
 				if (!credentials?.email || !credentials?.password)
-					throw new Error("Invalid credentials");
+					throw new Error("Please enter your credentials");
 				const user = await prisma.user.findUnique({
 					where: {
 						email: credentials.email,
@@ -53,6 +53,27 @@ export const authOptions: AuthOptions = {
 		strategy: "jwt",
 	},
 	secret: process.env.NEXTAUTH_SECRET,
+	callbacks: {
+		async session({ session, token, user }) {
+			// Send properties to the client, like an access_token and user id from a provider.
+
+			const currentUser = await prisma.user.findUnique({
+				where: {
+					email: user.email,
+				},
+			});
+
+			const newUser = {
+				name: user.name,
+				email: user.email,
+				image: user.image,
+				type: currentUser?.type,
+			};
+			session.user = newUser;
+
+			return session;
+		},
+	},
 };
 
 const handler = NextAuth(authOptions);
