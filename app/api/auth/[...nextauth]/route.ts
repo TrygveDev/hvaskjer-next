@@ -9,10 +9,6 @@ import bcrypt from "bcrypt";
 export const authOptions: AuthOptions = {
 	adapter: PrismaAdapter(prisma),
 	providers: [
-		GitHubProvider({
-			clientId: process.env.GITHUB_ID as string,
-			clientSecret: process.env.GITHUB_SECRET as string,
-		}),
 		GoogleProvider({
 			clientId: process.env.GOOGLE_CLIENT_ID as string,
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
@@ -53,27 +49,6 @@ export const authOptions: AuthOptions = {
 		strategy: "jwt",
 	},
 	secret: process.env.NEXTAUTH_SECRET,
-	callbacks: {
-		async session({ session, token, user }) {
-			// Send properties to the client, like an access_token and user id from a provider.
-
-			const currentUser = await prisma.user.findUnique({
-				where: {
-					email: user.email,
-				},
-			});
-
-			const newUser = {
-				name: user.name,
-				email: user.email,
-				image: user.image,
-				type: currentUser?.type,
-			};
-			session.user = newUser;
-
-			return session;
-		},
-	},
 };
 
 const handler = NextAuth(authOptions);

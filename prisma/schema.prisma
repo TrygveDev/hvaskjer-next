@@ -16,11 +16,10 @@ model User {
   email     String?   @unique
   emailVerified DateTime?
   image String?
-  type String?
+  type String? @default("user")
   hashedPassword String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  favoriteIds String[]
 
   accounts Account[]
   posts Post[]
@@ -29,6 +28,7 @@ model User {
 model Account {
   id        String   @id @default(uuid()) @map("_id")
   userId String
+  type String
   provider String
   providerAccountId String
   refresh_token String?
@@ -52,6 +52,8 @@ model Post {
   createdAt DateTime @default(now())
   category String
   userId String
+  datetime String?
+  location String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
