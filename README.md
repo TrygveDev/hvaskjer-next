@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# hvaskjer
+ 
+### “Hva Skjer” Drømtorp web mobil app 
 
-## Getting Started
+Web appen vil være en plattform for elever, lærere og ansatte ved Drømtorp Videregående skole for å holde seg oppdatert på hva som skjer på skolen. Appen vil ha to hovedfunksjoner: 
 
-First, run the development server:
+**Aktiviteter:** Appen vil ha en aktivitetskalender som vil liste opp alle aktiviteter og arrangementer som skjer på skolen. Brukere vil kunne se informasjon om hver aktivitet, inkludert tid, sted, beskrivelse og eventuelle påmeldingsdetaljer. Brukere vil også kunne melde seg på aktiviteter direkte fra appen.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**Nyheter:** Appen vil også ha en nyhetsseksjon som vil inneholde siste nytt om hva som skjer på skolen. Nyhetene vil bli publisert av skolens ansatte og vil inkludere informasjon om viktige hendelser, nye initiativer, prestasjoner av elever og ansatte og andre relevante oppdateringer. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I tillegg vil appen ha noen generelle funksjoner som: 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Brukerregistrering:** Appen vil kreve at brukerne registrerer seg med en e-postadresse og passord før de kan melde seg på aktiviteter eller legge ut posts (bare for lærere), eventuelt bruke google sign in.
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+**Innlogging og autentisering:** Brukere vil logge inn på appen med sin registrerte e-postadresse og passord. Appen vil bruke autentiseringsbiblioteket NextAuth med JWT for å håndtere autentisering og autorisering av API-tilgang. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Responsivt design:** Mobilwebappen vil være responsivt designet for å gi en optimal brukeropplevelse på mobiltelefoner. 
 
-## Learn More
+**API-grensesnitt:** Appen vil ha et API-grensesnitt som vil bli utviklet ved hjelp av NextJS. API-et vil håndtere alle forespørsler fra appen til databasen og vil implementere sikkerhetsfunksjoner som autentisering og autorisering. 
 
-To learn more about Next.js, take a look at the following resources:
+ 
+### Frontend: 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**NextJS:** Mobilwebappen vil være bygget med NextJS, som er en populær frontend-rammeverk for å lage responsive webapplikasjoner. NextJS gjør det enkelt å bygge gjenbrukbare UI-komponenter og håndtere applikasjonstilstanden effektivt samt intregrere backend i samme struktur. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Axios:** Axios er et HTTP-klientbibliotek som vil bli brukt til å håndtere API-kall fra mobilwebappen til backend-serveren. 
 
-## Deploy on Vercel
+Material UI: Material UI er et populært bibliotek for å lage responsive og moderne brukergrensesnitt. Det gir et sett med gjenbrukbare UI-komponenter som følger Material Design-prinsippene. 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Backend: 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**PostgreSQL:** PostgreSQL er en open source, objekt-relasjonsdatabase (ORDBMS) som er utviklet av PostgreSQL Global Development Group. Den er en av de mest avanserte og kraftige databasene tilgjengelig og brukes ofte som et alternativ til MySQL eller Oracle.
+
+**NextAuth:** NextAuth er en open source autentisering og autorisasjons bibliotek for Node.js-baserte applikasjoner. Det gir en enkel og robust løsning for å håndtere autentisering med flere leverandører som Google, Facebook, Twitter, Github, etc. samt autentisering med egen database.
+
+**JWT:** JWT (JSON Web Tokens) er en standard for å utveksle sikre tokens mellom klient og server. Det vil bli brukt til å håndtere autentisering og autorisering av API-tilgang for mobilwebappen. 
