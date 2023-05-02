@@ -18,6 +18,7 @@ type Post = {
 const Home = (props: Props) => {
 	const router = useRouter();
 	const [posts, setPosts] = useState([]);
+
 	useEffect(() => {
 		axios.get("/api/getPosts").then((data) => {
 			setPosts(data.data);
