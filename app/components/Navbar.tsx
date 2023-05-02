@@ -11,6 +11,7 @@ const Navbar = () => {
 	return (
 		<div className="w-screen h-screen flex flex-col-reverse z-50 pointer-events-none absolute">
 			<BottomNavigation
+				sx={{ backgroundColor: "#f7f7f7" }}
 				onChange={(event, newValue) => {
 					switch (newValue) {
 						case 0:

@@ -13,6 +13,7 @@ type Post = {
 	datetime?: string;
 	location?: string;
 	email: string;
+	createdAt: string;
 };
 
 const Home = (props: Props) => {
@@ -21,13 +22,18 @@ const Home = (props: Props) => {
 
 	useEffect(() => {
 		axios.get("/api/getPosts").then((data) => {
-			setPosts(data.data);
+			const sortedPosts = data.data.sort((a: any, b: any) => {
+				const dateA: any = new Date(a.createdAt);
+				const dateB: any = new Date(b.createdAt);
+				return dateB - dateA;
+			});
+			setPosts(sortedPosts);
 			console.log(data);
 		});
 	}, []);
 
 	return (
-		<div className="w-screen h-screen overflow-y-scroll flex flex-col items-center pt-5 gap-5">
+		<div className="w-screen h-screen overflow-y-scroll flex flex-col items-center pt-5 gap-5 pb-36">
 			{posts &&
 				posts.map((obj: any, i) => {
 					console.log(obj);

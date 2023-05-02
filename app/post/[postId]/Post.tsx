@@ -29,7 +29,7 @@ const Post = (props: Props) => {
 			setData(data.data);
 			setInizialized(true);
 		});
-	}, []);
+	}, [props.id]);
 
 	return (
 		inizialized &&
